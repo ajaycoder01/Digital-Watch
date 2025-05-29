@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=\, initial-scale=1.0">
+    <title>digital Watch</title>
+    <style>
+        body{
+            display: flex;
+            justify-content: center;
+            height: 700px;
+            align-items: center;
+            background-image: url(images/bgimg.jpg);
+            background-size: cover;
+            background-repeat: no-repeat;
+        }
+        .menu h1{
+          background-image: url(images/bgimg1.jpg);
+          background-size: cover;
+          font-size: 60px;
+          color: rgb(181, 218, 233);
+            padding: 40px 30px;
+            border-radius : 5px 55px;
+        }
+
+    </style>
+</head>
+<body onload="gettime()">
+    <div class="menu">
+        <h1 id="res"></h1>
+    </div>
+
+        <script>
+            function gettime(){
+                var d=  new Date();
+                var hrs= d.getHours();
+                var min= d.getMinutes();
+                var sec= d.getSeconds();
+                var  session= "AM";
+
+                if(hrs>12){
+                    hrs= hrs-12;
+                }
+                if(hrs<=12){
+                    session="PM";
+                }
+                hrs = hrs<10 ? "0"+hrs : hrs;
+                min = min<10 ? "0"+min : min;
+                sec = sec<10 ? "0"+sec : sec;
+
+                var time= hrs +":"+ min +":"+ sec +" "+ session;
+                document.getElementsByTagName("h1")[0].innerHTML=time;
+                setInterval(gettime,1000);
+            }
+           
+           
+            
+              
+              
+        </script>
+  
+    
+
+
+</body>
+</html>
